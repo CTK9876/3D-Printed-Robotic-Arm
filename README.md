@@ -1,138 +1,97 @@
 # 3D-Printed Robotic Arm
 
-### Mechanical Design | Additive Manufacturing | Electronics | Embedded Programming
+**Mechanical Design · Additive Manufacturing · Embedded Control · Mechatronics**
 
-## Project Overview
+A custom robotic arm developed through a complete design–build–test workflow: mechanical modeling in **SolidWorks**, FDM fabrication on a **Bambu Lab P1S**, assembly of servo-driven joints and a geared gripper, and **dual-joystick control** through an Arduino-based system and a **PCA9685 PWM servo driver**.
 
-This project involves the design, manufacturing, assembly, and programming of a custom 3D-printed robotic arm controlled using analog joysticks.
+> **Project status:** Physical prototype assembled; manual control and motion behavior have been tested. The engineering documentation is being expanded. Source CAD, firmware, and measured specifications will be added as those files and data are available.
 
-The robotic arm was designed in **SolidWorks**, manufactured using a **Bambu Lab P1S 3D printer**, and integrated with servo motors and an Arduino-based control system.
+## At a glance
 
-The main objective was to develop a functional robotic arm from the ground up while gaining hands-on experience in mechanical design, electronics integration, additive manufacturing, and embedded programming.
+| Area | Implementation |
+| --- | --- |
+| Mechanical CAD | SolidWorks; custom base, shoulder, arm/forearm, brackets, gripper, and controller enclosure |
+| Manufacturing | FDM 3D printing with Bambu Lab P1S |
+| Actuation | Servo-driven joints and gear-driven gripper |
+| User interface | Two analog joysticks |
+| Electronics | Arduino-based controller and PCA9685 PWM servo driver |
+| Firmware | Arduino / C++ |
+| Workflow | CAD → print → assemble → integrate → test → revise |
 
-Rather than using a pre-existing robotic arm kit, the mechanical structure was custom-designed, allowing greater flexibility in component placement, assembly, and future modifications.
+## System architecture
 
-## Key Features
+```mermaid
+flowchart LR
+    J[Dual analog joysticks] --> MCU[Microcontroller]
+    MCU --> PWM[PCA9685 PWM driver]
+    PWM --> S[Joint and gripper servos]
+    S --> M[3D-printed arm and gripper]
+    P[External servo power supply] -. power .-> PWM
+```
 
-- Custom-designed mechanical components modeled in SolidWorks
-- FDM 3D-printed structural components
-- Servo-driven robotic arm joints
-- Gear-driven mechanical gripper
-- Dual-joystick manual control
-- PCA9685 PWM servo driver integration
-- Custom control software written in Arduino/C++
-- Dedicated enclosure for electronic components
-- Iterative mechanical and software improvements
+*Conceptual control architecture, not a pin-level wiring diagram. The actual power-distribution and pin connections must be verified against the assembled prototype.*
 
-## Mechanical Design
+## What was designed
 
-The mechanical structure was developed using SolidWorks, with an emphasis on manufacturability, assembly, and integration with electronic components.
+- **Base and shoulder:** Structural support and rotational / lifting joint interfaces.
+- **Arm and forearm:** Custom link geometry connecting the actuated joints.
+- **Servo mounts and brackets:** Integration of commercial actuators into printed structures.
+- **Gear-driven gripper:** A custom end-effector mechanism for opening and closing.
+- **Control enclosure:** A 3D-printed housing for the joystick interface and electronics.
 
-Major components include:
+The design emphasizes manufacturable geometry, fastened assembly, servo placement, part fit, and the ability to modify individual printed components.
 
-- **Base:** Supports the robotic arm and its rotational movement.
-- **Shoulder Assembly:** Connects the base to the main arm structure.
-- **Arm and Forearm:** Custom-designed structural components.
-- **Gripper:** Gear-driven mechanism designed to open and close using a servo motor.
-- **Mounting Brackets:** Custom brackets for servo placement and mechanical connections.
-- **Control Enclosure:** Houses the electronic components and user controls.
+## Engineering and iteration
 
-The design process involved considering component dimensions, mounting positions, mechanical clearances, and the limitations of FDM 3D printing.
+This is not just a CAD render or assembled kit. Development included printing individual parts, checking fit, integrating servo motors, and revising both mechanical and control behavior.
 
-## Electronics and Control System
+Examples documented in the project:
 
-The electronic system uses a microcontroller and a PCA9685 PWM servo driver to control the servo motors.
+1. **Joystick axis/direction mapping:** Making joystick movement correspond more intuitively to arm movement.
+2. **Startup motion:** Investigating rapid movement toward initial servo positions, which could disturb arm stability.
+3. **Servo mounting and shaft alignment:** Designing physical mounts while accounting for shaft location and assembly tolerances.
+4. **Printability:** Reviewing part orientation, support requirements, holes, and reprints during FDM fabrication.
 
-Two analog joysticks provide manual input, allowing the user to control different movements of the robotic arm.
+These are development observations; quantitative improvements are **not** claimed until measured and logged.
 
-The control software converts joystick inputs into servo position commands.
+## Repository guide
 
-The system also incorporates startup positioning and movement-control adjustments.
+| Folder / file | Contents |
+| --- | --- |
+| [CAD/](CAD/) | Guidance for publishing native SolidWorks models and printable exports |
+| [Firmware/](Firmware/) | Arduino source location and control notes |
+| [Electronics/](Electronics/) | Parts list and electronics documentation |
+| [Images/](Images/) | Photo / CAD-render organization and upload instructions |
+| [Documentation/](Documentation/) | Technical design, manufacturing, testing, and portfolio documentation |
+| [Documentation/PROJECT_FACTS.md](Documentation/PROJECT_FACTS.md) | Unverified dimensions, components, and measurements to fill in |
+| [.gitignore](.gitignore) | Excludes temporary files while keeping engineering source files |
 
-## Manufacturing and Assembly
+### Engineering documents
 
-The mechanical components were manufactured using a Bambu Lab P1S FDM 3D printer.
+- [Mechanical design](Documentation/MECHANICAL_DESIGN.md)
+- [Electronics and control architecture](Documentation/ELECTRONICS_AND_CONTROL.md)
+- [Firmware and joystick controls](Documentation/FIRMWARE_AND_CONTROLS.md)
+- [Manufacturing and assembly](Documentation/MANUFACTURING_AND_ASSEMBLY.md)
+- [Testing and validation plan](Documentation/TESTING_AND_VALIDATION.md)
+- [Design challenges and iterations](Documentation/DESIGN_ITERATIONS.md)
+- [Résumé / portfolio project summary](Documentation/PORTFOLIO_SUMMARY.md)
 
-During the manufacturing process, multiple considerations influenced the final design:
+## Prototype gallery
 
-- Print orientation and support requirements
-- Structural integrity of printed components
-- Screw holes and mechanical fastening
-- Servo mounting and shaft alignment
-- Component fit and assembly accessibility
-- Reprinting and modifying components when necessary
+Photographs of the assembled prototype and CAD screenshots are being prepared for publication. See the [image naming and upload guide](Images/README.md). The gallery will be embedded here once the photographs are committed.
 
-The project required translating CAD models into physical components and evaluating how well the designs performed after manufacturing.
+## Current scope and limitations
 
-## Engineering Challenges and Design Improvements
+The prototype has been assembled and tested with manual joystick input. Public firmware and original CAD files are not yet present in this repository, and servo models, material, power ratings, payload, repeatability, range of motion, and precise dimensions have not been independently verified or measured for this documentation. See the [project fact checklist](Documentation/PROJECT_FACTS.md).
 
-### Servo Movement and Startup Behavior
+## Next steps
 
-Initial testing revealed that rapid servo positioning during startup could affect the stability of the robotic arm.
+- Publish the original Arduino `.ino` source and verify current joystick mapping against the physical robot.
+- Add SolidWorks source, printable STL exports, and assembly images.
+- Add verified component specifications, actual wiring/pin map, and printable settings.
+- Record motion tests and, if feasible, repeatability / payload observations.
+- Embed photographs and a short demonstration video.
 
-This motivated adjustments to the control software to improve movement behavior.
+---
 
-### Joystick Direction Mapping
-
-The initial joystick configuration did not correspond intuitively to the desired robotic arm movements.
-
-The software was adjusted to improve the relationship between joystick directions and arm movement.
-
-### Mechanical Integration
-
-Integrating servo motors into custom-designed structures required attention to mounting geometry, mechanical alignment, and available clearances.
-
-### Design for Additive Manufacturing
-
-Several components required consideration of printing orientation, support structures, and assembly limitations.
-
-These challenges provided opportunities to improve the design through iterative prototyping.
-
-## Tools and Technologies
-
-| Category | Tools / Technologies |
-|---|---|
-| CAD Software | SolidWorks |
-| Manufacturing | Bambu Lab P1S, FDM 3D Printing |
-| Programming | Arduino / C++ |
-| Motor Control | PCA9685 PWM Servo Driver |
-| Actuators | Servo Motors |
-| User Input | Analog Joysticks |
-| Mechanical Design | Custom Brackets, Joints, Gears |
-| Prototyping | Iterative Design and Testing |
-
-## Project Documentation
-
-This repository is intended to contain:
-
-- SolidWorks CAD models and assembly files
-- STL files for 3D printing
-- Arduino source code
-- Electronics wiring documentation
-- Mechanical design images
-- Manufacturing and assembly photographs
-- Engineering design report
-- Testing observations and design revisions
-
-## Future Improvements
-
-Potential future developments include:
-
-- Further optimization of mechanical components
-- Improved servo movement and control smoothness
-- Additional testing of mechanical performance
-- Improvements to the gripper mechanism
-- Exploration of automated movement sequences
-
-## Project Skills Demonstrated
-
-This project demonstrates practical experience in:
-
-- Mechanical Design and 3D CAD Modeling
-- Design for Additive Manufacturing (DfAM)
-- Rapid Prototyping
-- Mechanical Assembly
-- Electronics Integration
-- Embedded Programming
-- Troubleshooting and Design Iteration
-- Mechatronics System Development
+**Project area:** Mechanical Engineering / Mechatronics · **Repository owner:** [CTK9876](https://github.com/CTK9876)

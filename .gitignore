@@ -1,0 +1,33 @@
+# OS / editor temp files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.temp
+*.bak
+*.log
+
+# SolidWorks lock and backup files (retain actual .SLDPRT / .SLDASM / .SLDDRW)
+~$*
+*.SLDPRT.bak
+*.SLDASM.bak
+*.SLDDRW.bak
+*.sldprt.bak
+*.sldasm.bak
+*.slddrw.bak
+
+# Arduino / embedded build outputs
+build/
+*.elf
+*.hex
+*.bin
+*.map
+
+# Python/editor caches for optional analysis tooling
+__pycache__/
+*.pyc
+
+# Keep source CAD, STEP, STL, Arduino sketches, and documentation tracked.
