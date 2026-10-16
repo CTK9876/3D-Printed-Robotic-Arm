@@ -1,37 +1,34 @@
-# Testing and validation
+# Testing, Validation and Engineering Evidence
 
-This file separates **observed prototype behavior** from **formal test results**. No numeric performance claim should be published until it has been measured.
+## Evidence level
 
-## Qualitative observations from development
+The prototype has been assembled and manual movement has been discussed/tested qualitatively. The **published documentation does not yet contain dated quantitative test runs**, so neither the maximum payload nor joint repeatability nor observed smooth-start time is claimed.
 
-| Topic | Observation | Result status |
-| --- | --- | --- |
-| Joystick-to-joint mapping | Initial mapping did not match desired up/down and left/right motion | Software adjustment discussed; retest against latest sketch |
-| Startup behavior | Rapid initial servo movement could disturb stability | Needs documented retest / confirmation |
-| Servo placement | Mechanical fit and shaft location affected mounting decisions | Verify against CAD and final assembly |
-| 3D-printed parts | Print orientation, supports, and fit influenced iterations | Record final profile and part revisions |
+## Engineering tests to perform
 
-## Recommended acceptance tests
-
-| Test ID | Test method | Evidence to collect | Status |
+| ID | Test | Procedure / data to record | Status |
 | --- | --- | --- | --- |
-| T01 | Power up with the arm clear of obstacles | Video, final initial pose, unexpected motion | Not documented |
-| T02 | Move right joystick in all four directions | Video and observed joint direction | Not documented |
-| T03 | Sweep each joint across intended motion range | Angle readings and interference notes | Not documented |
-| T04 | Open and close gripper repeatedly, unloaded | Smooth motion, sticking, gear engagement | Not documented |
-| T05 | Repeat movement sequence several times | Consistency observations / measured variation | Not documented |
-| T06 | Check wiring during full movement | Snagging, connector strain, loose cables | Not documented |
-| T07 | Observe base stability during fast/extended poses | Tilt, slip, mounting issues | Not documented |
-| T08 | Optional payload trials with measured masses | Maximum repeatably handled mass and conditions | Not documented |
+| T01 | Safe initial position | Power on unloaded, observe actual first motion and any sudden jump; video and setup version | Not documented |
+| T02 | Base motion mapping | Move physical right joystick left/right; note command direction and base response | Not documented |
+| T03 | Shoulder motion mapping | Move physical joystick; compare commanded up/down direction with real joint | Not documented |
+| T04 | Elbow motion mapping | Move the corresponding stick up/down; verify sign and clearance | Not documented |
+| T05 | Gripper cycles | Run ten no-load open/close cycles; record missed engagement or slipping | Not documented |
+| T06 | End-stop clearance | Test each software-limited range in safe steps; check for stall/collision | Not documented |
+| T07 | Wire routing and base stability | Move through typical poses; observe snags, tilt and cable tension | Not documented |
+| T08 | Optional known-mass payload | Log load, extension, controlled pose and success/failure | Not documented |
+| T09 | Optional repeatability | Repeat reference pose 5–10 times, record displacement variability | Not documented |
 
-## Test log template
+Never substitute source-code angles for measured joint travel. A 270° servo label does not prove 270° of usable arm rotation.
 
-Create a new row in [test-log.csv](test-log.csv) for each test run. Use dates, the actual firmware revision, and any relevant print/assembly configuration.
+## Existing qualitative engineering observations
 
-For every test, write *PASS*, *FAIL*, or *NOT RUN* only after completing the procedure. Do not use an empty status as proof of passing.
+- Joystick direction did not initially match the intended physical motions; remapping was investigated.
+- On power-up, rapid initial servo motion was reported to disturb balance; code requires correction/validation before claiming smooth startup.
+- Servo shaft alignment and printed bracket fitting were design concerns.
+- Part orientation, support selection and reprints were considered during FDM fabrication.
 
-## Quantitative data currently unavailable
+## Data collection
 
-Joint travel, robot reach, payload, servo torque margin, gripper force, electrical draw, repeatability, and startup time are not presently measured for the public documentation.
+Use [`test-log.csv`](test-log.csv) for dated results and the [Engineering Information Checklist](Robotic_Arm_Engineering_Information_Checklist.xlsx) for measurements, verification of hardware specifications and printing settings.
 
-[Back to README](../README.md)
+Every claimed metric in the public résumé should have a test method, measurement and associated evidence (photo/video, log or CAD model).

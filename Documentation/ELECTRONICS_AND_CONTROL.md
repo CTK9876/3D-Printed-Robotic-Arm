@@ -1,54 +1,43 @@
-# Electronics and control architecture
+# Electronics Architecture and Wiring Verification
 
-## High-level components
+## System overview
 
-- **Two analog joysticks:** User movement commands
-- **Microcontroller:** Reads joystick values and computes output commands
-- **PCA9685 PWM driver:** Generates servo command pulses
-- **Servos:** Move joints and the gear-driven gripper
-- **External power:** Supplies the servo load (rating and exact arrangement to verify)
+Four analog channels from two joystick modules are read by an Arduino-compatible microcontroller. I²C control is sent to a PCA9685 PWM board, which generates command pulses on channels 0–3 for four servos (three arm axes and the gripper).
 
 ```mermaid
 flowchart TD
-    J1[Joystick 1] --> M[Microcontroller]
-    J2[Joystick 2] --> M
-    M -->|I2C control| P[PCA9685 PWM driver]
-    P -->|PWM signals| S[Servo motors]
-    S --> R[Arm joints and gripper]
-    V[Servo supply: verify voltage/current] -. power .-> S
-    G[Common reference: verify grounds] -. electrical reference .-> M
-    G -. electrical reference .-> P
+    J1["Joystick 1 (A0, A1)"] --> MCU["Microcontroller\nexact board TBD"]
+    J2["Joystick 2 (A2, A3)"] --> MCU
+    MCU -->|"I²C: SDA / SCL (pin numbers depend on board)"| PWM["PCA9685 @ 50 Hz"]
+    PWM --> C0["CH 0 · Shoulder"]
+    PWM --> C1["CH 1 · Base"]
+    PWM --> C2["CH 2 · Elbow"]
+    PWM --> C3["CH 3 · Gripper"]
+    SUPPLY["Separate servo power\nrating TBD"] -.-> PWM
 ```
 
-This is a **functional diagram**, not a verified wiring schematic.
+**Warning:** This is a firmware-derived *functional* diagram, **not** a verified electrical schematic or permission to wire untested hardware.
 
-## What must be verified from hardware and firmware
+## Pin map confirmed by the code
 
-| Item | Current documentation status |
-| --- | --- |
-| Exact MCU board | Not yet provided |
-| Joystick analog pins | Not yet provided |
-| Joystick pushbutton wiring | Unknown / may be unused |
-| PCA9685 SDA/SCL connections | Not yet provided |
-| PCA9685 I²C address | Not yet provided |
-| Servo output channels | Not yet provided |
-| Servo model and voltage | Not yet provided |
-| Servo power voltage and amperage | Not yet provided |
-| Ground topology | Needs physical verification |
+| MCU analog input | Code name | Actuator |
+| --- | --- | --- |
+| A0 | `joy1X` | Shoulder |
+| A1 | `joy1Y` | Base |
+| A2 | `joy2X` | Gripper |
+| A3 | `joy2Y` | Elbow |
 
-## Electrical integration considerations
+PCA9685 servo channels: **0 shoulder, 1 base, 2 elbow, 3 gripper**. The source uses `Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();`, with no explicit alternate I²C address. Board-specific SDA/SCL pins are not stated in the source.
 
-- Verify the microcontroller logic supply and the servo power supply independently.
-- Power servos from a correctly rated source, rather than assuming the microcontroller's 5 V pin can handle the load.
-- Check that the controller and driver share the reference required for reliable control signals, subject to the actual board wiring.
-- Confirm stall/peak current requirements before changing the servo power source.
-- Route wires away from rotating joints and pinching points.
+## Details requiring physical inspection
 
-## Documentation to add
+- The precise MCU model and I²C pin numbering.
+- VCC (logic) and V+ (servo supply) operating voltages.
+- Power supply current rating, distribution and shared ground reference.
+- Servo model, peak/stall-current ratings, connectors and wiring directions.
+- Whether protection (fuse, switch, etc.) exists.
+- Correct PCA9685 terminal labeling and cable strain relief.
 
-1. Photos showing the actual electronics inside the controller box.
-2. Labeled pin/channel map from the working `.ino` sketch.
-3. A true schematic reflecting as-built connections.
-4. Voltage/current ratings and fuse/protection details if applicable.
+**Servo power note:** A hobby-servo supply must support expected peak current. Never assume a microcontroller's logic pin or USB connection is suitable for powering all servos.
 
-[Components list](../Electronics/COMPONENTS.md) · [Back to README](../README.md)
+See [component list](../Electronics/COMPONENTS.md) and [engineering checklist](Robotic_Arm_Engineering_Information_Checklist.xlsx).

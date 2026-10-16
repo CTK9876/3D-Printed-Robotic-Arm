@@ -1,51 +1,57 @@
-# Firmware and manual control
+# Firmware & Controls
 
-## Purpose
+## Verified source
 
-The Arduino-based firmware turns joystick readings into movement commands for the robotic arm's servos via the PCA9685 PWM driver.
+The full uploaded source is available at [Firmware/Robotic_Arm_Porject_2.ino](../Firmware/Robotic_Arm_Porject_2.ino). This document describes that source, not a simulation or verified physical measurement.
 
-**Source availability:** The original working `.ino` sketch must be uploaded before code-level documentation can be verified.
+## Control path
 
-## Control pipeline (conceptual)
+```mermaid
+flowchart LR
+  A[Joystick analogRead A0–A3] --> B[joystickToSpeed]
+  B --> C[Update angle commands]
+  C --> D[constrain angle limits]
+  D --> E[map angle into PCA9685 counts]
+  E --> F[setPWM to four channels]
+```
 
-1. Read joystick analog inputs.
-2. Interpret horizontal/vertical axes for the desired joint motion.
-3. Apply any implemented calibration, deadband, direction inversion, and limits.
-4. Convert desired movement into servo positions / pulse commands.
-5. Send updated commands through PCA9685.
+The firmware calls `analogRead()` four times each loop, then updates the four servo setpoints. Joystick inputs outside the configured deadzone generate increments whose magnitude increases with distance from center. Loop pacing includes `delay(10)` and serial output.
 
-The above is an **architectural description**, not a claim that every step already exists in the sketch.
+## Exact source mapping
 
-## Controls to document from the working build
+| Joystick code variable | Arduino analog pin | Servo commanded | Sign | Deadzone | Max angle increment / loop |
+| --- | --- | --- | --- | ---: | ---: |
+| `joy1X` | A0 | Shoulder | + | 70 | 2° |
+| `joy1Y` | A1 | Base | + | 70 | 3° |
+| `joy2X` | A2 | Gripper | + | 50 | 5° |
+| `joy2Y` | A3 | Elbow | − | 70 | 3° |
 
-| Input | Intended behavior / verification |
-| --- | --- |
-| Right joystick up | Raise arm |
-| Right joystick down | Lower arm |
-| Right joystick right | Turn right |
-| Right joystick left | Turn left |
-| Other joystick axes | Verify from original code and physical test |
-| Startup | Move toward initial positions without sudden destabilizing jumps |
+The comments in the sketch associate joystick 1 with the right stick and joystick 2 with the left, but the actual physical mapping and signs need confirmation by testing.
 
-The right-joystick directions reflect the desired control mapping described during prototype testing. Verify that the latest uploaded sketch actually implements them.
+## Hardware and software commands
 
-## Startup behavior
+| Axis | Output channel | Nominal type in code | Starting command | Software limit |
+| --- | ---: | --- | ---: | --- |
+| Shoulder | 0 | 180° | 90° | 20–160° |
+| Base | 1 | 270° | 135° | 10–260° |
+| Elbow | 2 | 180° | 90° | 20–160° |
+| Gripper | 3 | 180° | 90° | 30–120° |
 
-An early observation was a rapid movement toward the starting position when power was applied, with a possible stability impact. A common remedy is ramping servo targets over time, but the installed implementation should be determined from the actual source code. Do not claim smoothing was successfully implemented without verification.
+The code uses `SERVOMIN=100`, `SERVOMAX=650`, a 50 Hz PWM frequency, joystick center 512, and serial output at 9600 baud.
 
-## Suggested software validation
+## Startup and safety
 
-- [ ] Record analog pin constants and PCA9685 channel constants.
-- [ ] Confirm neutral joystick readings.
-- [ ] Confirm correct axes and signs for each movement.
-- [ ] Verify physical joint limits and any software angle limits.
-- [ ] Check startup position and movement rate.
-- [ ] Verify behavior after power cycling.
-- [ ] Test gripper actuation independently from arm movement.
-- [ ] Record exact board and library versions.
+`setup()` delays 500 ms and then 2000 ms before commanding the servos. The installed `slowMove` function calls use the same initial and target positions, so they produce only a single commanded setpoint and do **not** confirm a slow physical motion. Resolve this only after calibrating the actual servo models and verifying the mechanical assembly.
 
-## Change control
+At 50 Hz, the 100–650 driver-count window corresponds to approximately 488–3174 microseconds. These are **code-derived pulse widths, not verified safe actuator endpoints**. Calibrate using part-specific datasheets and unloaded tests.
 
-Save a copy of the known-working sketch before experimenting. Test modified control mappings and servo limits in a safe, unloaded position.
+## Validation checklist
 
-[Arduino source directory](../Firmware/) · [Back to README](../README.md)
+- [ ] Confirm actual installed microcontroller board and library version.
+- [ ] Verify joystick 1 and 2 positions physically and test all directions.
+- [ ] Verify servo type, powered supply and per-servo PWM pulse limits.
+- [ ] Confirm physical joint clearances across the intended motion.
+- [ ] Observe repeated startup and document the actual motion.
+- [ ] Test gripper open/close without loading the gears.
+
+See [code review](CODE_REVIEW.md), [testing plan](TESTING_AND_VALIDATION.md), and [engineering checklist](Robotic_Arm_Engineering_Information_Checklist.xlsx).

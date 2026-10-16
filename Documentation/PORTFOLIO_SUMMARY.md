@@ -1,36 +1,30 @@
-# Engineering portfolio summary
+# Résumé and Portfolio Summary
 
-## Project title
+## Project: 3D-Printed Robotic Arm
 
-**3D-Printed Robotic Arm — Mechanical Design, Fabrication & Embedded Control**
+**Mechanical Design · FDM Additive Manufacturing · Embedded Servo Control**
 
-## Short project description
+Developed a custom-designed joystick-controlled robotic arm, integrating SolidWorks CAD, printed mechanical components, servo-driven joints, a gear-driven gripper and a PCA9685-based Arduino/C++ control system. The work combined modeling, fabrication, assembly, control mapping and troubleshooting in an iterative prototype.
 
-Designed and built a custom joystick-controlled robotic arm integrating SolidWorks mechanical design, Bambu Lab P1S FDM manufacturing, servo-driven joints, a geared gripper, and Arduino-based control with a PCA9685 PWM driver. The design-build process included printed component fit checks, mechanical assembly, control-axis mapping adjustments, and investigation of startup motion stability.
+### Résumé bullets
 
-## Résumé bullets — grounded draft
+- Designed a custom robotic arm with a geared gripper in **SolidWorks**, considering servo-shaft alignment, printed mounting structures, link geometry and assembly clearance.
+- Fabricated mechanical components using a **Bambu Lab P1S FDM printer** and assembled a servo-driven robotic arm with a separate, custom two-joystick controller.
+- Implemented **Arduino/C++ joystick-based servo control** through a **PCA9685 PWM driver**, including four servo channels, per-axis software limits and deadzone/sensitivity tuning.
+- Investigated joystick direction mapping, startup movement and component integration through hands-on prototyping and functional observations.
 
-- Designed custom robotic-arm structures and a geared gripper in **SolidWorks**, considering servo mounting, mechanical clearances, fasteners, and FDM printability.
-- Fabricated and assembled mechanical components using a **Bambu Lab P1S** and integrated servo-driven joints with a dual-joystick manual controller.
-- Developed and adjusted **Arduino/C++ servo control** using a **PCA9685 PWM driver**, addressing joystick-direction mapping and investigating abrupt servo startup behavior.
-- Applied iterative prototyping and troubleshooting to mechanical fit, servo alignment, printed part fabrication, and system integration.
+### Evidence links
 
-## Interview talking points
+- [Project homepage and prototype photos](../README.md)
+- [Original Arduino firmware](../Firmware/Robotic_Arm_Porject_2.ino)
+- [Control mappings and source review](CODE_REVIEW.md)
+- [Mechanical design and assembly documentation](MECHANICAL_DESIGN.md)
+- [Build/test records and verification checklist](Robotic_Arm_Engineering_Information_Checklist.xlsx)
 
-- **Design ownership:** Explain why each bracket/link or gear layout was selected; show the CAD assembly and printed part.
-- **Manufacturing constraints:** Describe orientation/support decisions and any failed prints or fit corrections.
-- **Hardware–software integration:** Explain how analog joystick input becomes servo actuation.
-- **Technical tradeoffs:** Discuss fast startup positioning vs. stability and mechanical limits.
-- **What you would improve next:** Quantify motion performance and refine control and assembly based on measured data.
+### What to add before claiming engineering performance
 
-## Evidence that would strengthen the résumé
+Physical dimensions, payload, range of motion, gripper force and repeatability should be measured and recorded before appearing as quantified achievement bullets. Do not claim successful startup smoothing until a corrected version has been tested.
 
-1. A 20–45 second clear operation video.
-2. One labeled SolidWorks assembly/exploded view.
-3. A verified BOM and wiring map.
-4. One measured performance result (e.g. travel range or repeatability) with the test method.
-5. A short before/after account of a resolved design issue.
+### Suggested interview narrative
 
-Avoid adding measured performance claims until test data exists.
-
-[Back to README](../README.md)
+Explain the design intent; show the full CAD assembly and one critical mechanical bracket; discuss print orientation/fit tradeoffs; walk through the joystick-to-servo firmware mapping; describe a control or startup problem and how you validated the change.

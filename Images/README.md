@@ -1,45 +1,21 @@
-# Project media
+# Project Image Archive
 
-Images give hiring reviewers a quick way to understand the scope of the design, assembly, and fabrication work.
+## Real prototype photographs — published
 
-## Planned organization
+The [Final-Assembly directory](Final-Assembly/) contains three photographs of the **actual assembled robotic arm** supplied by the project owner. The images have been resized/compressed as WebP for fast GitHub README loading; they are not synthetic illustrations.
 
-```text
-Images/
-├── Final-Assembly/
-│   ├── main-view.jpg
-│   ├── side-view.jpg
-│   └── front-view.jpg
-├── CAD/
-│   ├── full-assembly.png
-│   ├── gripper-detail.png
-│   └── exploded-view.png
-├── Manufacturing/
-│   └── printing-process.jpg
-└── README.md
-```
+- [`main-view.webp`](Final-Assembly/main-view.webp): full arm and controller on desk.
+- [`side-view.webp`](Final-Assembly/side-view.webp): alternate profile, links and servo joints.
+- [`controller-view.webp`](Final-Assembly/controller-view.webp): controller box, base and exposed test wiring.
 
-These names are examples; files are not yet included. GitHub does not preserve empty folders.
+All three images are embedded at the very top of the [repository README](../README.md).
 
-## Recommended images
+## Additional evidence to add
 
-1. One well-lit **full prototype** photo with base and controller visible.
-2. A **side view** showing arm linkages and actuator mounting.
-3. A **gripper close-up** showing the gear mechanism.
-4. A **SolidWorks full assembly** view.
-5. An optional **exploded assembly** or labeled component diagram.
-6. Optional short **demo video**, ideally via a link to external hosting if too large for GitHub.
+- `CAD/full-assembly.png` — SolidWorks screenshot.
+- `CAD/exploded-view.png` — labeled assembly view.
+- `CAD/gripper-detail.png` — gear and gripper mechanism.
+- `Manufacturing/printing-process.jpg` — printing / post-processing.
+- A short operating video hosted externally and linked from the README.
 
-## Guidelines
-
-- Use images that actually show this project, not generic robotics stock photos.
-- Remove distracting background objects, but do not alter the robot's design or conceal defects.
-- Keep individual files reasonably sized (JPEG for photos, PNG for CAD screenshots).
-- Upload photos with consistent names, then add the image links in the root README.
-- Do not include photos containing personal information, access credentials, or private documents.
-
-Example for the project homepage after uploading:
-
-```md
-![Assembled robotic arm and joystick controller](Images/Final-Assembly/main-view.jpg)
-```
+**Publication integrity:** Do not substitute a stock or generated CAD render for a real image of the finished device. Describe edits or crops accurately.

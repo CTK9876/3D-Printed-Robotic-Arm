@@ -1,9 +1,13 @@
-# Assembled prototype photographs
+# Final Assembled Prototype
 
-Upload the three ready-named photographs to this folder:
+The three WebP files in this folder are compressed versions of the owner's actual project photos. All are displayed in the [main project README](../../README.md):
 
-- `main-view.jpg` — overall assembled prototype and controller
-- `side-view.jpg` — side angle highlighting arm links and joint integration
-- `controller-view.jpg` — alternate angle showing controller box and wiring
+| File | View |
+| --- | --- |
+| [`main-view.webp`](main-view.webp) | Main full prototype and joystick controller |
+| [`side-view.webp`](side-view.webp) | Side angle of robot linkages and gripper |
+| [`controller-view.webp`](controller-view.webp) | Alternative angle highlighting controller and wiring |
 
-The root README gallery can be enabled once these JPEGs are uploaded. Do not upload the image ZIP itself; upload its three JPEGs.
+### Photo notes
+
+These are real **prototype** photos, not studio CAD renders. Exposed wiring visible in the images is part of the documented development state, and does not constitute a final enclosure or verified wiring diagram.
