@@ -16,8 +16,9 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 
 <table>
 <tr>
-<td align="center" width="50%"><img src="Images/Final-Assembly/side-view.webp" alt="Side view of the assembled arm with its links and attached controller" width="290" /><br /><sub>Side view of the arm and servo mounts</sub></td>
-<td align="center" width="50%"><img src="Images/Final-Assembly/controller-view.webp" alt="Closed printed controller enclosure with both joystick controls visible" width="290" /><br /><sub>Closed dual-joystick control box</sub></td>
+<td align="center" width="33%"><img src="Images/Final-Assembly/side-view.webp" alt="Side view of the assembled arm with its links and attached controller" width="210" /><br /><sub>Side view of the arm and servo mounts</sub></td>
+<td align="center" width="33%"><img src="Images/Final-Assembly/controller-view.webp" alt="Closed printed controller enclosure with both joystick controls visible" width="210" /><br /><sub>Closed dual-joystick control box</sub></td>
+<td align="center" width="34%"><a href="Images/Final-Assembly/controller-inner-detail-1.webp"><img src="Images/Final-Assembly/controller-inner-detail-1.webp" alt="Inside the control box showing the microcontroller, servo driver, joystick module, and wiring" width="225" /></a><br /><sub>Control box interior</sub></td>
 </tr>
 </table>
 
@@ -271,4 +272,4 @@ The repository is a record of an independently developed educational prototype, 
 ---
 
 **Mechanical Design • Rapid Prototyping • Embedded Control • System Integration**  
-Project maintained by [CTK9876](https://github.com/CTK9876). Technical claims intentionally distinguish **firmware settings**, **observed prototype work**, and **measurements not yet completed**.
+Technical claims intentionally distinguish **firmware settings**, **observed prototype work**, and **measurements not yet completed**.

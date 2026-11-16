@@ -7,8 +7,9 @@ The [Final Assembly Gallery](Final-Assembly/) contains 13 photographs of the ass
 - [Full prototype](Final-Assembly/main-view.webp) with the separate joystick controller.
 - [Side view](Final-Assembly/side-view.webp) showing the links and servo mounts.
 - [Closed control box](Final-Assembly/controller-view.webp) with both joystick controls visible.
+- [Control box interior](Final-Assembly/controller-inner-detail-1.webp) showing the controller board, servo driver, and wiring.
 
-These three images are featured at the top of the [project README](../README.md).
+These four images are featured at the top of the [project README](../README.md).
 
 ## Onshape CAD views
 
