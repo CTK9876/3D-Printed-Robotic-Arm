@@ -1,14 +1,14 @@
 # Project Image Archive
 
-## Real prototype photographs — published
+## Real prototype photographs
 
-The [Final-Assembly directory](Final-Assembly/) contains three photographs of the **actual assembled robotic arm** supplied by the project owner. The images have been resized/compressed as WebP for fast GitHub README loading; they are not synthetic illustrations.
+The [Final Assembly Gallery](Final-Assembly/) contains 13 photographs of the assembled robotic arm, mechanical details, and controller, taken by the project owner. Resized WebP copies keep the gallery quick to load.
 
-- [`main-view.webp`](Final-Assembly/main-view.webp): full arm and controller on desk.
-- [`side-view.webp`](Final-Assembly/side-view.webp): alternate profile, links and servo joints.
-- [`controller-view.webp`](Final-Assembly/controller-view.webp): controller box, base and exposed test wiring.
+- [Full prototype](Final-Assembly/main-view.webp) with the separate joystick controller.
+- [Side view](Final-Assembly/side-view.webp) showing the links and servo mounts.
+- [Closed control box](Final-Assembly/controller-view.webp) with both joystick controls visible.
 
-All three images are embedded at the very top of the [repository README](../README.md).
+These three images are featured at the top of the [project README](../README.md).
 
 ## Additional evidence to add
 

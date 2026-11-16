@@ -8,18 +8,20 @@
 
 A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechanical structures, servo-driven joints, a gear-driven gripper, and embedded electronics.
 
-<img src="Images/Final-Assembly/main-view.webp" alt="Assembled 3D-printed robotic arm with its dual-joystick controller" width="720" />
+<img src="Images/Final-Assembly/main-view.webp" alt="Assembled 3D-printed robotic arm with its separate joystick controller in the foreground" width="480" />
 
-*Assembled prototype — articulated arm, custom base, gripper and separate joystick controller.*
+*Assembled prototype with the printed base, articulated links, geared gripper, and separate joystick controller.*
 
 </div>
 
 <table>
 <tr>
-<td align="center" width="50%"><img src="Images/Final-Assembly/side-view.webp" alt="Robotic arm side view showing linkages and joints" width="420" /><br /><sub><b>Side view</b> — linkage arrangement and servo mounting</sub></td>
-<td align="center" width="50%"><img src="Images/Final-Assembly/controller-view.webp" alt="Robotic arm and controller box from an alternative angle" width="420" /><br /><sub><b>Controller view</b> — enclosed dual-joystick interface and cabling</sub></td>
+<td align="center" width="50%"><img src="Images/Final-Assembly/side-view.webp" alt="Side view of the assembled arm with its links and attached controller" width="290" /><br /><sub>Side view of the arm and servo mounts</sub></td>
+<td align="center" width="50%"><img src="Images/Final-Assembly/controller-view.webp" alt="Closed printed controller enclosure with both joystick controls visible" width="290" /><br /><sub>Closed dual-joystick control box</sub></td>
 </tr>
 </table>
+
+[View all 13 prototype photos](Images/Final-Assembly/), including the gripper, base, and controller internals.
 
 > **Project status:** Assembled physical prototype with manually controlled servo motion. The original Arduino sketch and real build photographs are available below. CAD exports, complete electrical measurements and quantitative performance results are pending documentation.
 
@@ -123,6 +125,8 @@ The printed design consists of a rotational base and shoulder support, connected
 
 **Design evidence:** [Detailed mechanical engineering report →](Documentation/MECHANICAL_DESIGN.md) · [CAD upload folders →](CAD/) · [Assembled prototype images →](Images/Final-Assembly/)
 
+Prototype close-ups of the [geared gripper](Images/Final-Assembly/gripper-detail.webp), [base assembly](Images/Final-Assembly/base-assembly.webp), and [base adapter](Images/Final-Assembly/base-adapter.webp).
+
 > **CAD publication:** Native SolidWorks assemblies/parts and STL exports will be added to [CAD/](CAD/) when provided. No simulated render is being presented as an actual CAD deliverable.
 
 ## Electronics and Firmware
@@ -149,6 +153,8 @@ Key control functions include `joystickToSpeed()`, `moveServo180()`, `moveServo2
 This represents the **software signal map**, not a complete circuit diagram. The exact Arduino model, servo datasheets and rated supply still need to be recorded.
 
 **Inspect in detail:** [Original firmware →](Firmware/Robotic_Arm_Porject_2.ino) · [Control logic and joystick mapping →](Documentation/FIRMWARE_AND_CONTROLS.md) · [Firmware review and startup analysis →](Documentation/CODE_REVIEW.md) · [Electronics wiring architecture →](Documentation/ELECTRONICS_AND_CONTROL.md) · [Component BOM →](Electronics/COMPONENTS.md).
+
+[Controller enclosure and internal wiring photos](Images/Final-Assembly/README.md#control-box).
 
 ## Engineering Challenges and Design Iterations
 
@@ -224,10 +230,7 @@ A professional engineering portfolio must distinguish **implemented design**, **
 │   ├── COMPONENTS.md               ← draft bill of materials
 │   └── README.md
 ├── Images/
-│   └── Final-Assembly/
-│       ├── main-view.webp
-│       ├── side-view.webp
-│       └── controller-view.webp
+│   └── Final-Assembly/             ← prototype photo gallery and image files
 ├── Documentation/
 │   ├── CODE_REVIEW.md
 │   ├── MECHANICAL_DESIGN.md
