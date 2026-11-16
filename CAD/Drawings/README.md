@@ -1,3 +1,5 @@
 # Technical drawings
 
-Upload PDFs or image exports with important dimensions, mounting locations, and tolerances. Include the revision used to fabricate the final prototype. Do not publish guessed dimensions.
+[RA-ASM-001 — Robotic Arm Assembly](RA-ASM-001.jpg) shows front and side views of the arm, projected component views, numbered callouts, and a parts table.
+
+Record mounting dimensions, tolerances, and the fabrication revision when adding part drawings.

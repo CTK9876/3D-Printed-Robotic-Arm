@@ -6,7 +6,7 @@ The custom-designed mechanical components were fabricated with a **Bambu Lab P1S
 
 ```mermaid
 flowchart LR
-    CAD[SolidWorks design] --> STL[Mesh export]
+    CAD[Onshape design] --> STL[Mesh export]
     STL --> SLICE[Slice and orient]
     SLICE --> PRINT[3D print]
     PRINT --> FIT[Fit and alignment check]

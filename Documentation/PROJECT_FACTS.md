@@ -13,7 +13,7 @@
 
 ## Project facts observed or described
 
-- Custom CAD developed in SolidWorks.
+- Custom CAD developed in Onshape. The [CAD Design Gallery](../README.md#cad-design-gallery) includes the assembly link, views, and drawing.
 - Printed components produced using a Bambu Lab P1S.
 - Assembled physical robotic arm with base, mechanical links, gripper, and separate two-joystick controller.
 - Real assembled-prototype photos are in [`Images/Final-Assembly`](../Images/Final-Assembly/).
@@ -25,7 +25,7 @@
 - [ ] Physical joint axis count and usable rotation ranges
 - [ ] Overall dimensions, reach, total mass, gripper jaw opening
 - [ ] Filament type and slicer profiles
-- [ ] Native CAD/STEP/STL source and revisions
+- [ ] STEP and STL exports and the revision used for fabrication
 - [ ] Formal startup, joint travel, gripper and stability test results
 - [ ] Demo video demonstrating actual operation
 

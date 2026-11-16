@@ -10,14 +10,8 @@ desktop.ini
 *.bak
 *.log
 
-# SolidWorks lock and backup files (retain actual .SLDPRT / .SLDASM / .SLDDRW)
+# Office lock files
 ~$*
-*.SLDPRT.bak
-*.SLDASM.bak
-*.SLDDRW.bak
-*.sldprt.bak
-*.sldasm.bak
-*.slddrw.bak
 
 # Arduino / embedded build outputs
 build/

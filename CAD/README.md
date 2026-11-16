@@ -1,25 +1,23 @@
 # Mechanical CAD and printable files
 
-The robotic arm was modeled in **SolidWorks**. Add the original design and exports here when available.
+The robotic arm was modeled in **Onshape**. Use the [Onshape source page](Onshape/) to open the assembly and the [CAD Design Gallery](../README.md#cad-design-gallery) to view assembly screenshots and drawing RA-ASM-001.
 
-## Suggested directory layout
+## Directory layout
 
 ```text
 CAD/
-├── SolidWorks/          # .SLDPRT and .SLDASM, plus referenced components
+├── Onshape/             # Link to the source document and assembly
 ├── STEP/                # Optional neutral CAD exports
 ├── STL/                 # Meshes positioned/oriented as documented
-├── Drawings/            # PDF drawings with dimensions/tolerances
+├── Drawings/            # Assembly drawing and drawing documentation
 └── README.md
 ```
 
-> Git does not track empty directories. These subdirectories will appear after the first relevant file is uploaded.
-
 ## Publishing checklist
 
-- Preserve original assembly-to-part references; use **Pack and Go** if the assembly references files in multiple local directories.
-- Make part names self-explanatory (e.g. `shoulder_bracket.SLDPRT`, `gripper_gear_left.stl`).
-- Keep editable source CAD as well as printer-ready exports.
+- Keep the Onshape document link with any exported models.
+- Name exports by component and function, such as `shoulder_bracket.step` or `gripper_gear_left.stl`.
+- Keep printable mesh exports associated with the corresponding Onshape version.
 - State revision, unit system, and orientation for each export.
 - Add mating/fastener details when known; do not claim unmeasured clearances.
 - Remove private institutional information and unrelated files before publishing.
