@@ -55,7 +55,6 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 - [Engineering Verification Status](#engineering-verification-status)
 - [Repository Structure](#repository-structure)
 - [Getting Started and Safety](#getting-started-and-safety)
-- [Next Steps](#next-steps)
 
 ## Project Highlights
 
@@ -255,18 +254,6 @@ A professional engineering portfolio must distinguish **implemented design**, **
 5. Use the [checklist](Documentation/Robotic_Arm_Engineering_Information_Checklist.xlsx) and [test plan](Documentation/TESTING_AND_VALIDATION.md) to document the verified setup.
 
 The repository is a record of an independently developed educational prototype, **not** a plug-and-play wiring kit. Exact pin-level and power documentation is pending as-built inspection.
-
-## Next Steps
-
-- [x] Model, fabricate and assemble the custom mechanical prototype
-- [x] Add actual assembled-prototype photography
-- [x] Publish original Arduino sketch and code-derived control map
-- [x] Organize technical reports, parts checklist and test templates
-- [ ] Publish original SolidWorks / STL files and dimensioned drawings
-- [ ] Confirm the BOM, microcontroller board, servo models and electrical supply
-- [ ] Record verified joystick directions and safe, smooth startup behavior
-- [ ] Measure joint motion, gripper travel and other relevant performance characteristics
-- [ ] Add a short video demonstrating the operating prototype
 
 ---
 
