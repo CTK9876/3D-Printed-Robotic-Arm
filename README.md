@@ -4,7 +4,7 @@
 
 ### From CAD Design to a Functional Mechatronics Prototype
 
-**SolidWorks** &nbsp;•&nbsp; **FDM 3D Printing** &nbsp;•&nbsp; **Arduino / C++** &nbsp;•&nbsp; **Servo Control**
+**Onshape** &nbsp;•&nbsp; **FDM 3D Printing** &nbsp;•&nbsp; **Arduino / C++** &nbsp;•&nbsp; **Servo Control**
 
 A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechanical structures, servo-driven joints, a gear-driven gripper, and embedded electronics.
 
@@ -16,14 +16,15 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 
 <table>
 <tr>
-<td align="center" width="50%"><img src="Images/Final-Assembly/side-view.webp" alt="Side view of the assembled arm with its links and attached controller" width="290" /><br /><sub>Side view of the arm and servo mounts</sub></td>
-<td align="center" width="50%"><img src="Images/Final-Assembly/controller-view.webp" alt="Closed printed controller enclosure with both joystick controls visible" width="290" /><br /><sub>Closed dual-joystick control box</sub></td>
+<td align="center" width="33%"><img src="Images/Final-Assembly/side-view.webp" alt="Side view of the assembled arm with its links and attached controller" width="210" /><br /><sub>Side view of the arm and servo mounts</sub></td>
+<td align="center" width="33%"><img src="Images/Final-Assembly/controller-view.webp" alt="Closed printed controller enclosure with both joystick controls visible" width="210" /><br /><sub>Closed dual-joystick control box</sub></td>
+<td align="center" width="34%"><a href="Images/Final-Assembly/controller-inner-detail-1.webp"><img src="Images/Final-Assembly/controller-inner-detail-1.webp" alt="Inside the control box showing the microcontroller, servo driver, joystick module, and wiring" width="225" /></a><br /><sub>Control box interior</sub></td>
 </tr>
 </table>
 
 [View all 13 prototype photos](Images/Final-Assembly/), including the gripper, base, and controller internals.
 
-> **Project status:** Assembled physical prototype with manually controlled servo motion. The original Arduino sketch and real build photographs are available below. CAD exports, complete electrical measurements and quantitative performance results are pending documentation.
+> **Project status:** Assembled physical prototype with manually controlled servo motion. The Onshape assembly, prototype photos, and original Arduino sketch document the build. Electrical measurements and quantitative performance results are pending.
 
 ## Documentation & Project Resources
 
@@ -31,7 +32,7 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 
 | Discipline | Open technical resource | What you will find |
 | :--- | :--- | :--- |
-| **Mechanical design & CAD** | [Mechanical Design Report](Documentation/MECHANICAL_DESIGN.md) · [CAD File Directory](CAD/) | Base, shoulder, arm links, mounting brackets, gripper mechanism and CAD/manufacturing design constraints |
+| **Mechanical design & CAD** | [Mechanical Design Report](Documentation/MECHANICAL_DESIGN.md) · [CAD Design Gallery](#cad-design-gallery) | Onshape assembly, assembly drawing, and design decisions for the base, links, servo mounts, and geared gripper |
 | **Electronics & wiring** | [Electronics Architecture](Documentation/ELECTRONICS_AND_CONTROL.md) · [Bill of Materials](Electronics/COMPONENTS.md) | Arduino analog-input map, PCA9685 output channels, components and electrical details still requiring verification |
 | **Firmware & controls** | **[Original Arduino Code](Firmware/Robotic_Arm_Porject_2.ino)** · [Control Documentation](Documentation/FIRMWARE_AND_CONTROLS.md) · [Code Review](Documentation/CODE_REVIEW.md) | Full working-project sketch, joystick-to-servo mapping, limit logic, PWM calculations and startup-behavior review |
 | **3D printing & assembly** | [Manufacturing & Assembly](Documentation/MANUFACTURING_AND_ASSEMBLY.md) · [Prototype Photos](Images/Final-Assembly/) | FDM design considerations, assembly sequence and authentic build imagery |
@@ -46,6 +47,7 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 
 - [Documentation & Project Resources](#documentation--project-resources)
 - [Project Highlights](#project-highlights)
+- [CAD Design Gallery](#cad-design-gallery)
 - [System Architecture](#system-architecture)
 - [Technical Specifications](#technical-specifications)
 - [Mechanical Design](#mechanical-design)
@@ -58,7 +60,7 @@ A custom-designed, joystick-controlled robotic arm integrating 3D-printed mechan
 
 ## Project Highlights
 
-This project was developed as a **design–build–test mechatronics exercise** rather than an assembly of a pre-existing robotic-arm kit. The mechanical components were modeled in **SolidWorks**, fabricated using a **Bambu Lab P1S**, assembled with servo actuators and manually controlled through two analog joysticks.
+I designed the robotic arm in **Onshape**, fabricated the mechanical components on a **Bambu Lab P1S**, and assembled the servo-driven mechanism. I also integrated the electronics and wrote the Arduino/C++ firmware for the dual-joystick controller.
 
 | Engineering area | Implemented work |
 | --- | --- |
@@ -69,6 +71,20 @@ This project was developed as a **design–build–test mechatronics exercise** 
 | **Engineering iteration** | Investigation of actuator alignment, joystick direction mapping, startup behavior and print-fit issues |
 
 **Read the source:** [Arduino sketch](Firmware/Robotic_Arm_Porject_2.ino) · [Firmware walkthrough](Documentation/FIRMWARE_AND_CONTROLS.md) · [Source-code review](Documentation/CODE_REVIEW.md)
+
+## CAD Design Gallery
+
+[Open the 3D assembly in Onshape](https://cad.onshape.com/documents/f33f522996e0dfd9410443b2/w/e7d4a2d9cf9717bb76fad9cf/e/da32d2e6a1b89454c6939721?renderMode=0&uiState=6afa6ab0cf5d158f1eb5acda) to inspect the individual parts and their placement. The link opens the view-only assembly directly.
+
+| Front oblique view | Side oblique view |
+| :---: | :---: |
+| <img src="Images/CAD/assembly-front-oblique.png" alt="Onshape assembly showing the base, shoulder bracket, paired arm plates, and gripper gears" width="290" /> | <img src="Images/CAD/assembly-side-oblique.png" alt="Onshape assembly showing the side of the arm, elbow servo mount, and geared gripper" width="290" /> |
+
+### Assembly Drawing
+
+[![Assembly drawing RA-ASM-001 with front and side views, numbered part callouts, and a parts table](CAD/Drawings/RA-ASM-001.jpg)](CAD/Drawings/RA-ASM-001.jpg)
+
+Drawing RA-ASM-001 uses numbered callouts to identify the base, shoulder bracket, links, spacers, servo positions, and gripper components. [Open the full-size drawing](CAD/Drawings/RA-ASM-001.jpg).
 
 ## System Architecture
 
@@ -122,11 +138,9 @@ The printed design consists of a rotational base and shoulder support, connected
 
 **Controller housing.** A separate printed enclosure contains the dual-joystick interface; lid fit, mounting standoffs and accessible wiring were considered in the prototype.
 
-**Design evidence:** [Detailed mechanical engineering report →](Documentation/MECHANICAL_DESIGN.md) · [CAD upload folders →](CAD/) · [Assembled prototype images →](Images/Final-Assembly/)
+**Design evidence:** [Mechanical design report](Documentation/MECHANICAL_DESIGN.md) · [CAD Design Gallery](#cad-design-gallery) · [Prototype photos](Images/Final-Assembly/)
 
 Prototype close-ups of the [geared gripper](Images/Final-Assembly/gripper-detail.webp), [base assembly](Images/Final-Assembly/base-assembly.webp), and [base adapter](Images/Final-Assembly/base-adapter.webp).
-
-> **CAD publication:** Native SolidWorks assemblies/parts and STL exports will be added to [CAD/](CAD/) when provided. No simulated render is being presented as an actual CAD deliverable.
 
 ## Electronics and Firmware
 
@@ -175,7 +189,7 @@ Detailed [design iteration notes](Documentation/DESIGN_ITERATIONS.md) distinguis
 
 ```mermaid
 flowchart LR
-    A["SolidWorks CAD"] --> B["STL export & slicing"]
+    A["Onshape CAD"] --> B["STL export & slicing"]
     B --> C["Bambu Lab P1S printing"]
     C --> D["Part fit / shaft alignment"]
     D --> E["Mechanical + electrical assembly"]
@@ -211,7 +225,7 @@ A professional engineering portfolio must distinguish **implemented design**, **
 | Arduino joystick control code | **Uploaded and statically reviewed** | [Original sketch](Firmware/Robotic_Arm_Porject_2.ino) · [Code review](Documentation/CODE_REVIEW.md) |
 | Four PWM channel assignments and software angle clamps | **Verified from source** | [Firmware documentation](Documentation/FIRMWARE_AND_CONTROLS.md) |
 | Hardware board, specific servo models and servo power supply | **Identification / verification needed** | [Components list](Electronics/COMPONENTS.md) |
-| Full native SolidWorks assembly and STL exports | **Awaiting original CAD files** | [CAD directory](CAD/) |
+| Onshape model and assembly drawing | **Available** | [CAD Design Gallery](#cad-design-gallery) |
 | Filament, print settings and physical dimensions | **Data needed** | [Engineering information workbook](Documentation/Robotic_Arm_Engineering_Information_Checklist.xlsx) |
 | Payload, repeatability, true joint limits and smooth-start behavior | **Not quantitatively validated** | [Test plan](Documentation/TESTING_AND_VALIDATION.md) |
 
@@ -222,7 +236,7 @@ A professional engineering portfolio must distinguish **implemented design**, **
 ```text
 3D-Printed-Robotic-Arm/
 ├── README.md                       ← project overview + real photos
-├── CAD/                            ← SolidWorks / STEP / STL / drawings (upload guides)
+├── CAD/                            ← Onshape source link, drawings, and STEP/STL export folders
 ├── Firmware/
 │   └── Robotic_Arm_Porject_2.ino   ← original Arduino sketch
 ├── Electronics/
@@ -258,4 +272,4 @@ The repository is a record of an independently developed educational prototype, 
 ---
 
 **Mechanical Design • Rapid Prototyping • Embedded Control • System Integration**  
-Project maintained by [CTK9876](https://github.com/CTK9876). Technical claims intentionally distinguish **firmware settings**, **observed prototype work**, and **measurements not yet completed**.
+Technical claims intentionally distinguish **firmware settings**, **observed prototype work**, and **measurements not yet completed**.

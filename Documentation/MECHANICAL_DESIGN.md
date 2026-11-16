@@ -6,9 +6,11 @@ Create a custom printable arm structure that integrates commercial servo motors,
 
 ## CAD environment
 
-- **Platform:** SolidWorks
+- **Platform:** Onshape
 - **Fabrication method:** FDM 3D printing (Bambu Lab P1S)
 - **Design approach:** Components modeled for assembly, mounting interfaces, and later adjustment
+
+The [CAD Design Gallery](../README.md#cad-design-gallery) includes two assembly views, the Onshape source link, and the assembly drawing [RA-ASM-001](../CAD/Drawings/RA-ASM-001.jpg).
 
 ## Subassemblies
 
@@ -41,7 +43,6 @@ Consider each part's build orientation, support accessibility, wall strength, ho
 
 ## Engineering evidence to add
 
-- Native SolidWorks assembly and parts, plus a full assembly screenshot
 - Dimensioned drawings of the base, shoulder bracket, linkages, and gripper
 - Exploded view and actual fastener table
 - Joint-axis locations and range of motion (measured)
@@ -49,6 +50,6 @@ Consider each part's build orientation, support accessibility, wall strength, ho
 
 ## Current limitations
 
-Without released CAD and measurements, this document does **not** claim exact dimensions, structural factors of safety, payload capacity, joint torques, or gripper force.
+Exact as-built dimensions, structural factors of safety, payload capacity, joint torques, and gripper force require physical measurements or additional analysis.
 
 [Back to project homepage](../README.md)
